@@ -3,7 +3,7 @@
   "displayName": "CNC DNC Sender (Haas & FANUC)",
   "description": "Send G-code to Haas (XMODEM) and FANUC (stream) controls over RS-232 from VS Code.",
   "version": "0.5.0",
-  "publisher": "pfmi",
+  "publisher": "facemill",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -106,5 +106,22 @@
   },
   "dependencies": {
     "serialport": "^13.0.0"
+  },
+  "icon": "media/icon.png",
+  "keywords": [
+    "CNC",
+    "G-code",
+    "DNC",
+    "Haas",
+    "FANUC",
+    "RS-232",
+    "serial",
+    "XMODEM",
+    "machining",
+    "NC program"
+  ],
+  "galleryBanner": {
+    "color": "#1f3a5f",
+    "theme": "dark"
   }
 }
