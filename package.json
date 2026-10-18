@@ -5,6 +5,14 @@
   "version": "0.5.0",
   "publisher": "pfmi",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaceMill/vscode-cnc-send.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FaceMill/vscode-cnc-send/issues"
+  },
+  "homepage": "https://github.com/FaceMill/vscode-cnc-send#readme",
   "engines": {
     "vscode": "^1.90.0"
   },
