@@ -1,0 +1,102 @@
+{
+  "name": "cnc-dnc-sender",
+  "displayName": "CNC DNC Sender (Haas & FANUC)",
+  "description": "Send G-code to Haas (XMODEM) and FANUC (stream) controls over RS-232 from VS Code.",
+  "version": "0.5.0",
+  "publisher": "pfmi",
+  "license": "ISC",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "cncDnc.sendProgram",
+        "title": "Send Current File to CNC",
+        "category": "CNC DNC Sender",
+        "icon": {
+          "light": "media/send-light.svg",
+          "dark": "media/send-dark.svg"
+        }
+      },
+      {
+        "command": "cncDnc.selectProfile",
+        "title": "Select Active CNC Profile",
+        "category": "CNC DNC Sender"
+      },
+      {
+        "command": "cncDnc.receiveProgram",
+        "title": "Receive File from CNC",
+        "category": "CNC DNC Sender"
+      },
+      {
+        "command": "cncDnc.openControlPanel",
+        "title": "Open Control Panel",
+        "category": "CNC DNC Sender"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "cncDnc.sendProgram",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "cncDnc.sendProgram",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CNC DNC Sender",
+      "properties": {
+        "cncDnc.profiles": {
+          "type": "array",
+          "default": [],
+          "description": "Saved RS-232 profiles, one per machine. Each needs a unique name; the other fields match the Control Panel.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Profile name shown in the picker."
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "cncDnc.activeProfile": {
+          "type": "string",
+          "default": "",
+          "description": "Name of the profile used by the keyboard shortcut and the status bar."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "cncDnc.sendProgram",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+alt+s",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  }
+}
